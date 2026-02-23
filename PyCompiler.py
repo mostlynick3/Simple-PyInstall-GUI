@@ -209,9 +209,9 @@ class PyInstallerGUI:
 
        try:
            if self.hide_console.get() and sys.platform == "win32":
-               subprocess.run(command, check=True, creationflags=subprocess.CREATE_NO_WINDOW)
+               subprocess.run(command, check=True, creationflags=subprocess.CREATE_NO_WINDOW, cwd=os.path.dirname(py_file))
            else:
-               subprocess.run(command, check=True)
+               subprocess.run(command, check=True, cwd=os.path.dirname(py_file))
            messagebox.showinfo("Success", "Conversion to EXE completed successfully!")
 
            if self.cleanup.get():
