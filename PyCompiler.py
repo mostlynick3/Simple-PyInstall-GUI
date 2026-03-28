@@ -174,7 +174,7 @@ class PyInstallerGUI:
        binary_name = self.binary_name.get()
        additional_args = self.additional_args.get().split() if self.additional_args.get() else []
 
-       command = ["pyinstaller"]
+       command = [os.path.join(os.path.dirname(sys.executable), "Scripts", "pyinstaller.exe")]
 
        if self.use_ubx.get():
            ubx_dir = self.download_ubx()
